@@ -4,56 +4,76 @@ public class Bulbasaur {
 
     // Constructor
     public Bulbasaur() {
-        // TODO: Initialize id and level with appropriate values
+        this.id = 1; // Default to Bulbasaur
+        this.level = 1; // Default level
     }
 
-    // setLevel method
+    // Method to set the level and handle evolution
     public void setLevel(int lv) {
-        // TODO: Implement this method
-        // Update the level
-        // If the new level is 16 or higher but less than 32, evolve to Ivysaur
-        // If the new level is 32 or higher, evolve to Venusaur
+        if (lv < 1) {
+            throw new IllegalArgumentException("Level must be greater than 0.");
+        }
+        this.level = lv;
+
+        // Evolve based on level
+        if (lv >= 32) {
+            this.id = 3; // Venusaur
+        } else if (lv >= 16) {
+            this.id = 2; // Ivysaur
+        } else {
+            this.id = 1; // Bulbasaur
+        }
     }
 
-    // getLevel method
+    // Method to get the current level
     public int getLevel() {
-        // TODO: Implement this method
-        return 0; // Placeholder return value
+        return this.level;
     }
 
-    // getName method
+    // Method to get the name based on the id
     public String getName() {
-        // TODO: Implement this method
-        // Return the name based on the current id
-        return ""; // Placeholder return value
+        switch (this.id) {
+            case 3:
+                return "Venusaur";
+            case 2:
+                return "Ivysaur";
+            case 1:
+            default:
+                return "Bulbasaur";
+        }
     }
 
-    // getID method
+    // Method to get the id
     public int getID() {
-        // TODO: Implement this method
-        return 0; // Placeholder return value
+        return this.id;
     }
 
-    // toString method
+    // Method to provide a string representation of the object
     @Override
     public String toString() {
-        // TODO: Implement this method
-        // Return a string representation of the Bulbasaur object
-        return ""; // Placeholder return value
+        // Output format "Level: X, ID: Y"
+        return "Level: " + level + ", ID: " + id;
     }
 
-    // equals method
+    // Method to compare this object with another object
     @Override
     public boolean equals(Object obj) {
-        // TODO: Implement this method
-        // Compare this Bulbasaur object with another object
-        return false; // Placeholder return value
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Bulbasaur other = (Bulbasaur) obj;
+        return this.id == other.id && this.level == other.level;
     }
 
-    // copy method
+    // Method to create a copy of this object
     public Bulbasaur copy() {
-        // TODO: Implement this method
-        // Create and return a new Bulbasaur object with the same id and level
-        return null; // Placeholder return value
+        Bulbasaur newBulbasaur = new Bulbasaur();
+        newBulbasaur.id = this.id;
+        newBulbasaur.level = this.level;
+        return newBulbasaur;
     }
 }
+
