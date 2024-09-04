@@ -14,8 +14,13 @@ public class Ex1 {
     }
 
     public static void main(String[] args) {
-        // TODO: Call the calculateGaussSum method with the correct parameters
-        // and print the result
-        // Parameters for the problem: start = 81297, step = 198, count = 100
-    }
+        int sum = 0;
+int i = 81297;
+while (i < 100899) {
+    sum += i;
+    i += 198;
 }
+System.out.println(sum);
+}
+}
+    
